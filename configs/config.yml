@@ -1,0 +1,50 @@
+stages:
+  - enhancement
+  - segmentation
+  - filter
+  - quality_score
+  - speaker_clustering
+  - stats
+
+enhancement:
+  input_manifest: dataset/raw_data_manifest.json
+  tools:
+    deepfilternet:
+        run_if:
+          dns_mos__bak__lt: 3.5              # noisy audio (static, hiss, reverb)
+        replace_if:
+          enhance__dns_mos__bak__gt: 0       # background must improve
+          damage__dns_mos__sig__lte: 0.1     # speech quality must not drop more than 0.1
+          enhance__dns_mos__ovr__gt: 0       # overall quality must improve
+  output_manifest: dataset/enhancement_manifest.json
+  audio_dir: dataset/enhanced_audio
+
+segmentation:
+  output_manifest: dataset/segmentation_manifest.json
+  audio_dir: dataset/audio_segments
+  align_language: kmr
+  end_padding: 0.15
+  sample_rate: 24000
+  max_duration_to_split_sentence: 15.0
+
+filter:
+  output_manifest: dataset/filter_manifest.json
+  min_duration: 2.0
+  max_duration: 15.0
+  min_words: 3
+  min_align_score: -7.0
+  exclude_abbr: true
+  exclude_number: true
+
+speaker_clustering:
+  output_manifest: dataset/speaker_clustering_manifest.json
+  threshold: 0.65
+  id_format: "speaker_{n:03d}"
+
+quality_score:
+  output_manifest: dataset/quality_score_manifest.json
+  metrics:
+    - dns_mos
+
+stats:
+  output_file: dataset/stats.json
