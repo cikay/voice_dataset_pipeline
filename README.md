@@ -1,8 +1,8 @@
-# Kurdish Kurmanji Voice Dataset Pipeline
+# Voice Dataset Pipeline
 
-A pipeline to process paired audio-text data for Kurdish Kurmanji, suitable for fine-tuning TTS and ASR models. It enhances audio quality, segments long audio into short utterances using CTC forced alignment, filters candidate segments, then clusters speakers.
+A pipeline to process paired audio-text data for any language, suitable for fine-tuning TTS and ASR models. It enhances audio quality, segments long audio into short utterances using CTC forced alignment, filters candidate segments, then clusters speakers.
 
-**Published dataset:** [muzaffercky/azadiya-welat-kurdish-kurmanji-voice](https://huggingface.co/datasets/muzaffercky/azadiya-welat-kurdish-kurmanji-voice)
+Configure the target language via `align_language` in `configs/config.yml` (e.g. `kmr` for Kurdish Kurmanji, `eng` for English). See [supported language codes](https://huggingface.co/MahmoudAshraf/mms-300m-1130-forced-aligner).
 
 ## Clone
 
@@ -84,7 +84,7 @@ Reads from `dataset/raw_data_manifest.json`.
 
 Splits long audio into short utterances using CTC forced alignment:
 
-1. Loads the [MMS-300M forced alignment model](https://huggingface.co/MahmoudAshraf/mms-300m-1130-forced-aligner) (supports 1,130+ languages including Kurdish).
+1. Loads the [MMS-300M forced alignment model](https://huggingface.co/MahmoudAshraf/mms-300m-1130-forced-aligner) (supports 1,130+ languages).
 2. Aligns ground truth text to audio — no ASR transcription involved.
 3. Maps word-level timestamps back to sentence boundaries.
 4. Sub-splits long sentences by `;:` punctuation.

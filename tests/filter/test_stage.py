@@ -78,7 +78,7 @@ class TestShouldDiscard:
             "desthilatdîya AKP-MHPê demokrasîyê naxwazin",
         ],
     )
-    def test_abbreviation_with_kurdish_suffix(self, sentence, stage: FilterStage):
+    def test_abbreviation_with_suffix(self, sentence, stage: FilterStage):
         result, reason = stage._should_discard(sentence, 5.0, 0.0)
         assert result is True
         assert reason == "abbreviations"
