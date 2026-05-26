@@ -61,7 +61,7 @@ Expected output should start with `2.8.0` and CUDA `12.8`.
 The pipeline is configured via `configs/config.yml`. Run it with:
 
 ```bash
-python -m kurdish_kurmanji_voice_dataset_pipeline.pipeline --config configs/config.yml --log-file logs/pipeline.log
+python -m voice_dataset_pipeline.pipeline --config configs/config.yml --log-file logs/pipeline.log
 ```
 
 Stages run in the order defined under the `stages` key in `configs/config.yml`.
@@ -69,7 +69,7 @@ Stages run in the order defined under the `stages` key in `configs/config.yml`.
 To resume from a specific stage (skipping all preceding ones):
 
 ```bash
-python -m kurdish_kurmanji_voice_dataset_pipeline.pipeline --config configs/config.yml --from segmentation --log-file logs/pipeline.log
+python -m voice_dataset_pipeline.pipeline --config configs/config.yml --from segmentation --log-file logs/pipeline.log
 ```
 
 ### EnhancementStage
@@ -145,7 +145,7 @@ python -m pytest tests/segmentation/test_stage.py -v
 Reads the speaker clustering manifest, selects explicit columns, checks that the repo doesn't already exist, then pushes to HuggingFace Hub.
 
 ```bash
-python -m kurdish_kurmanji_voice_dataset_pipeline.push_dataset \
+python -m voice_dataset_pipeline.push_dataset \
   --repo your-username/your-dataset-name
 ```
 

@@ -4,7 +4,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from kurdish_kurmanji_voice_dataset_pipeline.segmentation.stage import (
+from voice_dataset_pipeline.segmentation.stage import (
     SegmentationStage,
     normalize_text,
     split_into_sentences,

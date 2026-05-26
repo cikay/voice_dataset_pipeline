@@ -3,9 +3,9 @@
 Push the Kurdish Kurmanji voice dataset to HuggingFace Hub.
 
 Usage:
-    python -m kurdish_kurmanji_voice_dataset_pipeline.push_dataset --repo muzaffercky/azadiya-welat-kurdish-kurmanji-voice
-    python -m kurdish_kurmanji_voice_dataset_pipeline.push_dataset --repo ... --manifest dataset/speaker_clustering_manifest.json
-    python -m kurdish_kurmanji_voice_dataset_pipeline.push_dataset --repo ... --private
+    python -m voice_dataset_pipeline.push_dataset --repo muzaffercky/azadiya-welat-kurdish-kurmanji-voice
+    python -m voice_dataset_pipeline.push_dataset --repo ... --manifest dataset/speaker_clustering_manifest.json
+    python -m voice_dataset_pipeline.push_dataset --repo ... --private
 """
 
 import argparse
@@ -19,7 +19,7 @@ from dotenv import load_dotenv, dotenv_values, find_dotenv
 from huggingface_hub import HfApi
 from huggingface_hub.utils import RepositoryNotFoundError
 
-from kurdish_kurmanji_voice_dataset_pipeline.load_dataset_from_local import load_dataset
+from voice_dataset_pipeline.load_dataset_from_local import load_dataset
 
 load_dotenv()
 
