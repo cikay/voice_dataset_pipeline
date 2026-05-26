@@ -112,7 +112,7 @@ class SegmentationStage(BaseStage):
         for idx, entry in enumerate(entries):
             audio_path = Path(entry["audio_file"])
             text_path = Path(entry["text_file"])
-            video_id = entry["id"]
+            video_id = entry["audio_id"]
 
             if not audio_path.exists():
                 logger.warning("Missing audio: %s", audio_path)
