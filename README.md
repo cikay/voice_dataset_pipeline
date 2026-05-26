@@ -151,7 +151,7 @@ python -m voice_dataset_pipeline.push_dataset \
 dataset/
 ├── audio/                            ← input: WAV files
 ├── text/                             ← input: text files (same stem as audio)
-├── raw_data_manifest.json            ← built by build_manifest; read by enhancement
+├── raw_data_manifest.json            ← input: place before running the pipeline
 ├── enhanced_audio/                   ← enhancement: enhanced + symlinked WAV files
 ├── audio_segments/                   ← segmentation: segment WAV files
 ├── enhancement_manifest.json
