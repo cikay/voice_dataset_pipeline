@@ -9,13 +9,7 @@ Configure the target language via `align_language` in `configs/config.yml` (e.g.
 Clone the latest code:
 
 ```bash
-git clone https://github.com/cikay/azadiya-welat-voice-dataset-pipeline.git
-```
-
-To clone a specific tag (e.g. `v2.0.0`):
-
-```bash
-git clone --branch v2.0.0 https://github.com/cikay/azadiya-welat-voice-dataset-pipeline.git
+git clone git@github.com:cikay/voice_dataset_pipeline.git
 ```
 
 ## Input Data
